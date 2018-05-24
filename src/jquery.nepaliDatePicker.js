@@ -1,6 +1,6 @@
 /*
  * @fileOverview NepaliDatePicker - jQuery Plugin
- * @version 2.0.0
+ * @version 2.0.1
  *
  * @author Sanish Maharjan https://github.com/sanishmaharjan
  * @see https://github.com/sanishmaharjan/
@@ -308,6 +308,7 @@ var calendarFunctions = {};
 
             var bsYear = adYear + 57;
             var bsMonth = (adMonth + 9 ) % 12;
+            bsMonth = bsMonth === 0 ? 12 : bsMonth;
             var bsDate = 1;
 
             if (adMonth < 4) {
@@ -469,6 +470,9 @@ var calendarFunctions = {};
                         "left": inputFieldPosition.left
                     });
 
+                    if ($element.val()) {
+                        datePickerPlugin.renderFormattedSpecificDateCalendar($nepaliDatePicker, datePickerPlugin.options.dateFormat, $element.val());
+                    }
                     $nepaliDatePicker.show();
                     datePickerPlugin.eventFire($element, $nepaliDatePicker, "show");
 
