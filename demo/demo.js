@@ -36,6 +36,10 @@ $(document).ready(function () {
             "datePickerData": datePickerData
         };
 
+        analytics.track(event.type, {
+            datePickerData: datePickerData
+        });
+
         var output = '<p><code>&blacktriangleright; ' + JSON.stringify(outputData) + '</code></p>';
         $('.output').append(output);
         $('.output').scrollTop($('.output').prop("scrollHeight"));
